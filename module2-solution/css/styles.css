@@ -1,3 +1,4 @@
+/* Appliquer box-sizing pour faciliter la gestion des marges et paddings */
 * {
   box-sizing: border-box;
 }
@@ -10,14 +11,16 @@ body {
 
 .page-title {
   text-align: center;
-  font-size: 2em;
+  font-size: 2em; /* 75% plus grand que le texte normal */
   margin-bottom: 30px;
 }
 
 .section-container {
   width: 100%;
+  overflow: hidden; /* Pour contenir les floats */
 }
 
+/* Style commun aux sections */
 .section {
   border: 1px solid black;
   padding: 20px;
@@ -25,8 +28,10 @@ body {
   float: left;
   position: relative;
   background-color: #f9f9f9;
+  color: black;
 }
 
+/* Le titre dans chaque section, positionné en haut à droite */
 .section-title {
   position: absolute;
   top: 0;
@@ -34,9 +39,10 @@ body {
   background-color: #ccc;
   border: 1px solid black;
   padding: 5px 10px;
-  font-size: 1.25em;
+  font-size: 1.25em; /* 25% plus grand que le texte normal */
 }
 
+/* Couleurs spécifiques pour chaque section */
 #chicken {
   background-color: #ffe5e5;
 }
@@ -58,7 +64,7 @@ body {
   background-color: #9999ff;
 }
 
-/* Desktop (≥992px) */
+/* Desktop (≥992px) : 3 sections sur une ligne égales */
 @media (min-width: 992px) {
   .section {
     width: 30%;
@@ -66,20 +72,19 @@ body {
   }
 }
 
-/* Tablet (768px–991px) */
+/* Tablette (768px – 991px) : 2 sections sur la 1ère ligne, 3ème section sur 2ème ligne */
 @media (min-width: 768px) and (max-width: 991px) {
   .section {
     width: 47%;
     margin: 1.5%;
   }
-
   .section:nth-child(3) {
     width: 95%;
     clear: both;
   }
 }
 
-/* Mobile (≤767px) */
+/* Mobile (≤767px) : chaque section prend toute la largeur */
 @media (max-width: 767px) {
   .section {
     width: 100%;
